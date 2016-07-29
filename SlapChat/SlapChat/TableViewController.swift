@@ -11,13 +11,15 @@ import UIKit
 class TableViewController: UITableViewController {
 
     
-    var managedMessageObjects: [Message] = []
+    var managedMessageObjects: Set<Message> = []
     let store: DataStore = DataStore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        store.fetchData()
+        //store.fetchData()
+        
+        store.fetchDataByEntity(Message.entityName, key: Message.sortKey)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
